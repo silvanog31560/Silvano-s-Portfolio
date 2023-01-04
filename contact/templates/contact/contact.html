@@ -1,0 +1,40 @@
+{% extends "core/base.html" %}
+
+{% block title %}Contact Page{% endblock title %}
+
+{% block content %}
+  <div class="mx-auto">
+
+  {% if submitted %}
+  <h2 class="text-center">Thank You!</h2>
+    <p class="align-center">
+    Your message was submitted successfully.
+    </p>
+  {% else %}
+    <h2 class="text-center">Send Me A Message</h2>
+      <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          {{ form.email.errors }}
+          <label for="id_email" class="form-label">Email address</label>
+          <input type="email" name="email" class="form-control" id="id_email" placeholder="name@example.com">
+        </div>
+        <div class="mb-3">
+          {{ form.subject.errors }}
+          <label for="id_subject" class="form-label">Subject</label>
+          <input type="text" name="subject" class="form-control" id="id_subject">
+        </div>
+        <div class="mb-3">
+          {{ form.subject.errors }}
+          <label for="id_message" class="form-label">Message</label>
+          <textarea name="message" class="form-control" id="id_message" rows="3"></textarea>
+        </div>
+
+        <div class="form-actions">
+            <input type="submit" value="Submit" class="btn btn-primary">
+        </div>
+      </form>
+  </div>
+</main>
+  {% endif %}
+{% endblock content %}

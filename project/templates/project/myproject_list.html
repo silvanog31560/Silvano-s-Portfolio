@@ -1,0 +1,23 @@
+{% extends "core/base.html" %}
+
+{% block title %}Projects List{% endblock title %}
+
+{% block content %}
+
+  <h1 class="text-center m-5">Projects List</h1>
+
+  <div class="row row-cols-auto d-flex justify-content-around">
+    {% for project in myproject_list %}
+    <div class="card text-bg-light p-3 m-3" style="width: 18rem;">
+      <img src="{{ project.image_thumbnail.url }}" class="card-img-top object-fit-contain border rounded"
+        alt="{{ project.title }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ project.title }}</h5>
+        <p class="card-text">{{ project.description|truncatechars:100 }}</p>
+        <a href="{{ project.get_absolute_url }}" class="btn btn-dark">Detail View</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+{% endblock content %}

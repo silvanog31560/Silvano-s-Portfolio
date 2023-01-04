@@ -1,0 +1,33 @@
+{% extends "core/base.html" %}
+
+{% block title %}{{ project.title|title }}{% endblock title %}
+
+{% block content %}
+
+  <h1 class="text-center m-5">{{ project.title|title }}</h1>
+
+  <div class="mx-auto card text-bg-light p-3" style="width: 80%;">
+    <img
+      srcset="{{ project.image_regular.url }} 703w, {{ project.image.url }} 800w"
+      sizes="(max-width: 688px) 703px,
+             800px"
+      src="{{ project.image.url }}"
+      alt="{{ project }}" class="card-img-top object-fit-contain border rounded"/>
+    <div class="card-body text-center">
+      <h5 class="card-title">{{ project.title }}</h5>
+      <hr class="border border-dark border-3 opacity-75">
+      <h5>Description</h5>
+      <p class="card-text">{{ project.description }}</p>
+      <hr class="border border-dark border-3 opacity-75">
+      <h5>Technology</h5>
+      <p class="card-text">{{ project.technology }}</p>
+      <hr class="border border-dark border-3 opacity-75">
+      <a href="{% url 'projects:project-list' %}" class="btn btn-dark m-1">Back to Projects</a>
+      <a href="{{ project.link }}" class="btn btn-dark m-1">Visit Site</a>
+      <a href="{{ project.github }}" class="btn btn-dark m-1">
+        <i class="bi-github" role="img" aria-label="GitHub"></i>
+      </a>
+    </div>
+  </div>
+
+{% endblock content %}

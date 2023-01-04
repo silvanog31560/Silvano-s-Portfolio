@@ -1,0 +1,74 @@
+{% extends "core/base.html" %}
+
+{% block title %}Technology{% endblock title %}
+
+{% block content %}
+
+  <h1 class="text-center m-5">Technology</h1>
+
+  <div class="max-lg mx-auto">
+    <ol class="list-group list-group-numbered m-3">
+      <h3 class="text-center">Rating Scale</h3>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Beginner</div>
+            I am just starting to learn this subject with little to no previous
+            experience. I can perform basic tasks, but may struggle with more
+            advanced topics.
+          </div>
+        <span class="badge bg-primary rounded-pill">2.5</span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Intermediate</div>
+            I have a solid foundation of knowledge and have gained some practical
+            experience. I am able to perform most tasks with some guidance, but may
+            still encounter some challenges.
+          </div>
+        <span class="badge bg-primary rounded-pill">5.0</span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Advanced</div>
+            I have a thorough understanding of the subject and a high level of
+            proficiency. I am able to perform tasks independently and may be able
+            to teach others or mentor those at lower levels of expertise.
+          </div>
+        <span class="badge bg-primary rounded-pill">7.5</span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Expert</div>
+            I have a deep and comprehensive understanding of the subject and am
+            considered a subject matter expert. I am able to perform tasks with
+            ease and have a high level of expertise in my field.
+          </div>
+        <span class="badge bg-primary rounded-pill">10</span>
+      </li>
+  </ol>
+</div>
+
+<div class="row row-cols-auto d-flex justify-content-around">
+{% for technology in technology_list %}
+  <div class="card m-3 text-bg-light" style="width: 32rem;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{ technology.image_medium.url }}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="text-center card-title">{{ technology }}</h5>
+        <p class="card-text">
+          Rating:
+          <span class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            <span class="progress-bar" style="width: {{ technology.percent }}%">{{ technology.rating }}</span>
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+</div>
+
+{% endblock content %}
