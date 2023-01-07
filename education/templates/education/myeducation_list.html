@@ -44,22 +44,25 @@
     {% endfor %}
   </div>
   <hr class="border border-danger border-2 opacity-50">
-<h2 class="text-center m-5">Education Goals</h2>
 
-<table class="table table-dark table-hover p-3 m-3 max-lg mx-auto">
-  <thead>
-    <tr>
-      <th scope="col">Subject</th>
-      <th scope="col">Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for goal in education.goal %}
+<div class="mb-5">
+  <h2 class="text-center m-3">Education Goals</h2>
+
+  <table class="table table-dark table-hover p-3 max-lg mx-auto">
+    <thead>
       <tr>
-        <td>{{ goal }}</td>
-        <td>{{ goal.details }}</td>
+        <th scope="col">Subject</th>
+        <th scope="col">Details</th>
       </tr>
-    {% endfor %}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      {% for goal in education.goal %}
+        <tr>
+          <td>{{ goal }}</td>
+          <td>{{ goal.details }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 {% endblock content %}
