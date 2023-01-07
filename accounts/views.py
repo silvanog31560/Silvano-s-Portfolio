@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from django.contrib.auth.views import PasswordResetView
 
-# Create your views here.
+from .forms import MyPasswordResetForm
+
+# Have to use SenGrid Api to send emails with free PythonAnywhere account.
+class CustomPasswordResetView(PasswordResetView):
+
+    form_class = MyPasswordResetForm

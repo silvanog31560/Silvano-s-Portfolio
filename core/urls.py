@@ -16,12 +16,35 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.views.generic import RedirectView
+from django.contrib.auth import views as auth_views
+
+from accounts import views
 
 admin.site.site_header = "My Portfolio Administration"
 admin.site.site_title = "My Portfolio Admin"
 admin.site.index_title = "My Portfolio Admin Home"
 
 urlpatterns = [
+    path(
+        'admin/password_reset/',
+        views.CustomPasswordResetView.as_view(),
+        name='admin_password_reset',
+    ),
+    path(
+        'admin/password_reset/done/',
+        auth_views.PasswordResetDoneView.as_view(),
+        name='password_reset_done',
+    ),
+    path(
+        'reset/<uidb64>/<token>/',
+        auth_views.PasswordResetConfirmView.as_view(),
+        name='password_reset_confirm',
+    ),
+    path(
+        'reset/done/',
+        auth_views.PasswordResetCompleteView.as_view(),
+        name='password_reset_complete',
+    ),
     path('admin/', admin.site.urls),
     path('pages/', include('django.contrib.flatpages.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
