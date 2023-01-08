@@ -5,6 +5,8 @@ from .base import *
 
 ALLOWED_HOSTS = []
 
+SITE_ID = 1
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
