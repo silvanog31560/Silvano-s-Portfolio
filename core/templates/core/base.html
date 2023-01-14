@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=MonteCarlo">
   </head>
 
-  <body class="body-structure text-bg-dark p-3">
+  <body class="body-structure text-bg-dark p-3 container">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
@@ -75,11 +75,8 @@
     </div>
   </div>
 </nav>
-
       {% block content %}
 
       {% endblock content %}
-
-      <script src="{% static 'core/js/script.js' %}"></script>
   </body>
 </html>
